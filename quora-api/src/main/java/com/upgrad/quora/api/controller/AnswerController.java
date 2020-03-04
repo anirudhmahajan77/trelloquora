@@ -1,18 +1,30 @@
 package com.upgrad.quora.api.controller;
 
-import com.upgrad.quora.api.model.*;
-import com.upgrad.quora.service.business.AnswerBusinessService;
+import com.upgrad.quora.api.model.AnswerResponse;
+import com.upgrad.quora.api.model.AnswerRequest;
+import com.upgrad.quora.api.model.AnswerEditRequest;
+import com.upgrad.quora.api.model.AnswerEditResponse;
+import com.upgrad.quora.api.model.AnswerDeleteResponse;
+import com.upgrad.quora.api.model.AnswerDetailsResponse;
+
 import com.upgrad.quora.service.business.QuestionBusinessService;
 import com.upgrad.quora.service.entity.AnswerEntity;
 import com.upgrad.quora.service.entity.QuestionEntity;
 import com.upgrad.quora.service.exception.AnswerNotFoundException;
+
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
+
 import com.upgrad.quora.service.exception.InvalidQuestionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestHeader;
+import com.upgrad.quora.service.business.AnswerBusinessService;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -96,7 +108,7 @@ public class AnswerController {
             @RequestHeader("authorization") final String authorization,
             @PathVariable("answerId") final String answerUuid,
             AnswerEditRequest editRequest)
-            throws AuthorizationFailedException, AnswerNotFoundException {
+            throws AuthorizationFailedException,AnswerNotFoundException{
         // 1. First Get the Answer.
         // 2. Then update the Answer Content
         // Finally update Answer in DB.
@@ -159,7 +171,7 @@ public class AnswerController {
         public ResponseEntity<List<AnswerDetailsResponse>> getAllAnswerToQuestion(
                 @RequestHeader("authorization") final String authorization,
                 @PathVariable("questionId") final String questionUuid)
-            throws AuthorizationFailedException, InvalidQuestionException {
+            throws  AuthorizationFailedException,InvalidQuestionException {
         // First get question using questionUuid, then find the questionId and for that question Id get all the answers.
         QuestionEntity quesEntity = questionBusinessService.getQuestion(questionUuid);
 

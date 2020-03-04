@@ -1,11 +1,13 @@
 package com.upgrad.quora.service.business;
 
-import com.upgrad.quora.service.dao.AnswerDao;
+import com.upgrad.quora.service.dao.QuestionDao;
 import com.upgrad.quora.service.dao.UserDao;
+import com.upgrad.quora.service.dao.AnswerDao;
 import com.upgrad.quora.service.entity.AnswerEntity;
+import com.upgrad.quora.service.entity.UserAuthEntity;
 import com.upgrad.quora.service.entity.UserEntity;
-import com.upgrad.quora.service.exception.AnswerNotFoundException;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
+import com.upgrad.quora.service.exception.AnswerNotFoundException;
 import com.upgrad.quora.service.exception.InvalidQuestionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,7 +54,7 @@ public class AnswerBusinessService {
      * @throws AnswerNotFoundException
      */
     public AnswerEntity getAnswerByAnswerUuid(final String answerUuid, final String authorizationToken)
-            throws AuthorizationFailedException, AnswerNotFoundException {
+            throws AuthorizationFailedException,AnswerNotFoundException {
 
         userBusinessService.getUserFromToken(authorizationToken);
         AnswerEntity answerEntity = answerDao.getAnswerByUuid(answerUuid);
@@ -93,7 +95,7 @@ public class AnswerBusinessService {
      * @throws AnswerNotFoundException
      */
     @Transactional(propagation = Propagation.REQUIRED)
-    public AnswerEntity deleteAnswer(final String answerUuid, final String authorizationToken) throws AuthorizationFailedException, AnswerNotFoundException {
+    public AnswerEntity deleteAnswer(final String answerUuid, final String authorizationToken) throws AuthorizationFailedException,AnswerNotFoundException {
 
         UserEntity userEntity = userBusinessService.getUserFromToken(authorizationToken);
         AnswerEntity answerEntity = answerDao.getAnswerByUuid(answerUuid);
@@ -119,7 +121,7 @@ public class AnswerBusinessService {
      * @throws AuthorizationFailedException
      * @throws InvalidQuestionException
      */
-    public List<AnswerEntity> getAllAnswersByQuestionId (final Integer id, final String authorizationToken) throws AuthorizationFailedException, InvalidQuestionException {
+    public List<AnswerEntity> getAllAnswersByQuestionId (final Integer id,final String authorizationToken) throws AuthorizationFailedException,InvalidQuestionException{
         userBusinessService.getUserFromToken(authorizationToken);
 
         List<AnswerEntity> answerEntities = answerDao.getAnswersByQuestionId(id);
