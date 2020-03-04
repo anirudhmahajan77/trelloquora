@@ -76,18 +76,19 @@
     <property name="project.structure.side.proportion" value="0.6643678" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\aniru\Desktop\Final Project\Trello_quora_sol\quora-service\src\main\java\com\upgrad\quora\service\business" />
-      <recent name="C:\Users\aniru\Desktop\Final Project\Trello_quora_sol\quora-service\src\main\java\com\upgrad\quora\service\entity" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Trello_quora\quora-api\src\main\resources\endpoints" />
+      <recent name="E:\Trello_quora\quora-api\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.upgrad.quora.api.controller" />
       <recent name="com.upgrad.quora.service.business" />
       <recent name="com.upgrad.quora.service.dao" />
       <recent name="com.upgrad.quora.service.entity" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Trello_quora\quora-api\src\main\resources\endpoints" />
-      <recent name="E:\Trello_quora\quora-api\src\main\resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\aniru\Desktop\Final Project\Trello_quora_sol\quora-service\src\main\java\com\upgrad\quora\service\business" />
+      <recent name="C:\Users\aniru\Desktop\Final Project\Trello_quora_sol\quora-service\src\main\java\com\upgrad\quora\service\entity" />
     </key>
   </component>
   <component name="RunManager" selected="Application.QuoraApiApplication">
